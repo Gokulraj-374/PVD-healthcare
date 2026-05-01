@@ -1,0 +1,27 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidLead(data) {
+      return data.keys().hasAll(['name', 'email', 'phone', 'courseInterest', 'createdAt']) &&
+             data.keys().size() <= 6 &&
+             data.name is string && data.name.size() <= 100 &&
+             data.email is string && data.email.size() <= 100 &&
+             data.phone is string && data.phone.size() <= 20 &&
+             data.courseInterest is string && data.courseInterest.size() <= 100 &&
+             data.createdAt == request.time;
+    }
+
+    match /leads/{leadId} {
+      allow create: if isValidLead(request.resource.data);
+      // Only authenticated admins (if implemented) should read leads.
+      // For now, we only allow creation from the public.
+      allow read: if false; 
+    }
+  }
+}

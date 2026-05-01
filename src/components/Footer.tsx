@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="flex items-center justify-center group-hover:rotate-6 transition-transform">
-                <img src="/logo.png" alt="PVD Padhividass Logo" className="w-12 h-12 object-contain" />
+                <img src="logo.png" alt="PVD Padhividass Logo" className="w-12 h-12 object-contain" />
               </div>
               <span className="font-display font-bold text-xl">PVD Padhividass</span>
             </Link>

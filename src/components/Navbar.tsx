@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 group">
             <div className="flex items-center justify-center group-hover:rotate-6 transition-transform">
-              <img src="/logo.png" alt="PVD Padhividass Logo" className="w-12 h-12 object-contain" />
+              <img src="logo.png" alt="PVD Padhividass Logo" className="w-12 h-12 object-contain" />
             </div>
             <div className="flex flex-col">
               <span className={cn(

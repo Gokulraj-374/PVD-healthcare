@@ -7,7 +7,7 @@ export const COURSES: Course[] = [
     description: 'Perfect for beginners looking to enter the healthcare industry. Covers anatomy, physiology, and basic coding systems.',
     duration: '2 Months',
     eligibility: 'Life Science Graduate / Any Degree',
-    certification: 'PVD Padhividass Course Completion Certificate',
+    certification: 'PVD Padhvidass Course Completion Certificate',
     syllabus: [
       'Anatomy and Physiology',
       'Medical Terminology',
@@ -15,7 +15,7 @@ export const COURSES: Course[] = [
       'CPT Basic Guidelines',
       'HCPCS Level II'
     ],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop'
+    image: 'basic-medical-coding.png'
   },
   {
     id: 'advanced-medical-coding',
@@ -31,7 +31,7 @@ export const COURSES: Course[] = [
       'Compliance and HIPAA',
       'DRG Assignment'
     ],
-    image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=600&auto=format&fit=crop'
+    image: 'advanced-medical-coding.png'
   },
   {
     id: 'cpc-certification',
@@ -47,7 +47,7 @@ export const COURSES: Course[] = [
       'Practice Exams (20+ Full Mock Tests)',
       'Exam Strategy Workshops'
     ],
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=600&auto=format&fit=crop'
+    image: 'cpc-certification.png'
   },
   {
     id: 'css-certification',
@@ -63,7 +63,7 @@ export const COURSES: Course[] = [
       'Revenue Cycle Management',
       'Data Analytics in Healthcare'
     ],
-    image: 'https://images.unsplash.com/photo-1504868584819-f8e90526ef49?q=80&w=600&auto=format&fit=crop'
+    image: 'css-certification.png'
   }
 ];
 
@@ -72,28 +72,20 @@ export const TESTIMONIALS: Testimonial[] = [
     id: 't1',
     name: 'Priya Dharshini',
     role: 'CPC Certified Coder at Omega Healthcare',
-    text: 'PVD Padhividass changed my career. The 100% pass guarantee is real—I passed CPC on my first attempt!',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&h=150&auto=format&fit=crop'
+    text: 'PVD Padhvidass changed my career. The 100% pass guarantee is real—I passed CPC on my first attempt!',
   },
   {
     id: 't2',
     name: 'Rahul Kumar',
     role: 'Medical Coding Auditor',
-    text: 'The trainers are industry experts. The practical placement training helped me land a job in a top MNC.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&auto=format&fit=crop'
+    text: 'The trainers are industry experts. The practical training helped me land a job in a top MNC.',
   },
   {
     id: 't3',
     name: 'Anjali S.',
     role: 'Medical Billers',
     text: 'Highly recommend for anyone wanting to start in medical coding. Excellent atmosphere and support.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&h=150&auto=format&fit=crop'
   }
 ];
 
-export const PARTNERS: Partner[] = [
-  { id: 'p1', name: 'Omega Healthcare', logo: 'https://placeholder.com/150x80?text=Omega' },
-  { id: 'p2', name: 'Vee Technologies', logo: 'https://placeholder.com/150x80?text=VeeTech' },
-  { id: 'p3', name: 'Access Healthcare', logo: 'https://placeholder.com/150x80?text=Access' },
-  { id: 'p4', name: 'Visionary RCM', logo: 'https://placeholder.com/150x80?text=Visionary' },
-];
+

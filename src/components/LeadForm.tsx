@@ -62,7 +62,7 @@ export default function LeadForm() {
           <input
             required
             type="text"
-            placeholder="John Doe"
+            placeholder="Enter your name"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-orange focus:ring-2 focus:ring-brand-orange/10 outline-none transition-all bg-white"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -73,7 +73,7 @@ export default function LeadForm() {
           <input
             required
             type="email"
-            placeholder="john@example.com"
+            placeholder="Enter your email"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/10 outline-none transition-all bg-white"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -87,7 +87,7 @@ export default function LeadForm() {
           <input
             required
             type="tel"
-            placeholder="+91 98765 43210"
+            placeholder="Enter your phone number"
             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-accent focus:ring-2 focus:ring-brand-accent/10 outline-none transition-all bg-white"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -133,15 +133,11 @@ export default function LeadForm() {
           <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
         ) : (
           <>
-            Request Free Demo
+            Submit
             <Send size={18} />
           </>
         )}
       </button>
-
-      <p className="text-[11px] text-gray-400 text-center">
-        By submitting this form, you agree to be contacted via phone or email for educational purposes.
-      </p>
     </form>
   );
 }

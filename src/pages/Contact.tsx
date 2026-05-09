@@ -7,22 +7,22 @@ export default function Contact() {
     {
       icon: Phone,
       title: 'Call Us',
-      value: '+91 98765 43210',
+      value: '+91 84895 64699',
       desc: 'Mon-Sat: 9:00 AM - 6:00 PM',
       color: 'bg-blue-50 text-blue-600'
     },
     {
       icon: Mail,
       title: 'Email Us',
-      value: 'info@pvdphealth.com',
+      value: 'pvdhealthcare@gmail.com',
       desc: 'We reply within 24 hours',
       color: 'bg-violet-50 text-brand-violet'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      value: 'Chennai, Tamil Nadu',
-      desc: '123 Healthcare Plaza, RCM District',
+      value: 'Kanchipuram, Tamil Nadu',
+      desc: '55M, TNHB, Rajiv gandhi street, Pallavan Nagar, 631501',
       color: 'bg-amber-50 text-amber-600'
     }
   ];
@@ -59,15 +59,7 @@ export default function Contact() {
               ))}
             </div>
 
-            <a
-              href="https://wa.me/919876543210"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-3 bg-[#25D366] text-white px-8 py-5 rounded-2xl font-bold hover:shadow-xl transition-all w-fit group"
-            >
-              <MessageSquare size={24} className="group-hover:rotate-12 transition-transform" />
-              Chat on WhatsApp
-            </a>
+
           </div>
 
           {/* Right: Lead Form Card */}

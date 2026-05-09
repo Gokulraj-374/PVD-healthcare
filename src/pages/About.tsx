@@ -33,11 +33,11 @@ export default function About() {
           >
             <h2 className="text-sm uppercase tracking-[0.3em] font-bold text-brand-orange">About the Institute</h2>
             <h1 className="text-4xl md:text-6xl font-display font-bold text-brand-primary leading-tight">
-              PVD Padhividass <br />
+              PVD Padhvidass <br />
               <span className="text-brand-orange">Healthcare Training</span>
             </h1>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Founded with the vision to bridge the gap between education and healthcare industry requirements, PVD Padhividass has emerged as a beacon of excellence in Medical Coding training. 
+              Founded with the vision to bridge the gap between education and healthcare industry requirements, PVD Padhvidass has emerged as a beacon of excellence in Medical Coding training. 
             </p>
             <div className="space-y-4 text-gray-600">
               <p>We don't just teach coding; we build careers. Our methodology focuses on deep conceptual understanding of human anatomy and precise application of coding guidelines (ICD, CPT, HCPCS).</p>
@@ -84,7 +84,7 @@ export default function About() {
             <Target className="text-brand-accent mb-6" size={48} />
             <h3 className="text-3xl font-display font-bold mb-4">Our Mission</h3>
             <p className="text-gray-400 leading-relaxed">
-              To provide industry-synced, affordable training to life science graduates, ensuring every student achieves global certification and premium job placements.
+              To provide industry-synced, affordable training to life science graduates, ensuring every student achieves global certification.
             </p>
           </motion.div>
         </div>

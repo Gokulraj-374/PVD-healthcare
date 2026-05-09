@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { ArrowRight, ShieldCheck, Zap, Users, Star, Quote, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { TESTIMONIALS, PARTNERS, COURSES } from '../constants';
+import { TESTIMONIALS, COURSES } from '../constants';
 import LeadForm from '../components/LeadForm';
 
 const fadeIn = {
@@ -39,7 +39,7 @@ export default function Home() {
               </h1>
               
               <p className="text-lg text-gray-600 max-w-lg leading-relaxed">
-                Join India's premier healthcare training institute. Master Medical Coding, CPC Certification, and Medical Billing with industry experts and 100% placement support.
+                Join India's premier healthcare training institute. Master Medical Coding, CPC Certification, and Medical Billing with industry experts.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -54,7 +54,7 @@ export default function Home() {
                   to="/courses"
                   className="bg-white text-brand-primary border border-gray-200 px-8 py-4 rounded-full font-bold hover:bg-gray-50 transition-all"
                 >
-                  Book Free Demo
+                  Let's Connect
                 </Link>
               </div>
 
@@ -93,29 +93,9 @@ export default function Home() {
                 />
                 
                 {/* Stats Overlay */}
-                <div className="absolute bottom-10 -left-10 bg-orange-grad p-6 rounded-3xl shadow-xl space-y-2 hidden md:block">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-white">
-                      <Zap size={20} />
-                    </div>
-                    <div>
-                      <p className="text-2xl font-bold text-white leading-none">100%</p>
-                      <p className="text-[10px] uppercase tracking-wider font-bold text-white/80">Placement Rate</p>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="absolute top-10 -right-10 bg-pink-grad p-6 rounded-3xl shadow-xl space-y-2 hidden md:block">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center text-white">
-                      <Users size={20} />
-                    </div>
-                    <div>
-                      <p className="text-2xl font-bold text-white leading-none">500+</p>
-                      <p className="text-[10px] uppercase tracking-wider font-bold text-white/80">Hiring Partners</p>
-                    </div>
-                  </div>
-                </div>
+
+
               </div>
             </motion.div>
           </div>
@@ -199,7 +179,7 @@ export default function Home() {
               <div className="p-8 lg:p-12 space-y-10">
                 <div className="text-center space-y-2">
                   <h3 className="text-3xl font-display font-bold text-brand-primary">Claim Your Success</h3>
-                  <p className="text-gray-500">Fill the form to get a detailed brochure and free demo invitation.</p>
+                  <p className="text-gray-500">Fill the form to get a free demo invitation and course details.</p>
                 </div>
                 <LeadForm />
               </div>
@@ -208,21 +188,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Placement Partners */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-400 font-bold uppercase tracking-[0.2em] mb-12 text-xs">Our Students Work At</p>
-          <div className="flex flex-wrap justify-center gap-12 lg:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-700">
-            {PARTNERS.map(partner => (
-               <div key={partner.id} className="flex flex-col items-center gap-2">
-                 <div className="w-[120px] h-[40px] bg-gray-100 rounded-lg flex items-center justify-center font-display font-bold text-gray-400">
-                   {partner.name}
-                 </div>
-               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }

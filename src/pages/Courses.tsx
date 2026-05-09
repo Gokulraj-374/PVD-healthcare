@@ -111,7 +111,7 @@ export default function Courses() {
                     <div className="space-y-2">
                        <p className="text-[10px] uppercase font-bold tracking-widest text-gray-400">What you get</p>
                        <ul className="space-y-3">
-                         {['Job Placement Support', 'LMS Access', '20+ Mock Tests', 'Interactive Session'].map(f => (
+                         {['20+ Mock Tests', 'Interactive Session'].map(f => (
                            <li key={f} className="flex items-center gap-3 text-sm font-semibold text-brand-primary">
                              <div className="w-1.5 h-1.5 bg-brand-accent rounded-full" />
                              {f}
@@ -129,9 +129,7 @@ export default function Courses() {
                       >
                         Enroll Now
                       </a>
-                      <button className="block w-full text-center bg-white text-brand-primary border border-gray-200 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all">
-                        Download Brochure
-                      </button>
+
                     </div>
                   </div>
                 </div>

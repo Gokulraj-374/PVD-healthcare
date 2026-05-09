@@ -9,9 +9,9 @@ export default function Footer() {
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="flex items-center justify-center group-hover:rotate-6 transition-transform">
-                <img src="logo.png" alt="PVD Padhividass Logo" className="w-12 h-12 object-contain" />
+                <img src="logo.png" alt="PVD Padhvidass Logo" className="w-16 h-16 object-contain brightness-90" />
               </div>
-              <span className="font-display font-bold text-xl">PVD Padhividass</span>
+              <span className="font-display font-bold text-xl">PVD Padhvidass</span>
             </Link>
             <p className="text-gray-400 leading-relaxed text-sm">
               Empowering healthcare professionals through world-class medical coding training and global certifications.
@@ -33,7 +33,7 @@ export default function Footer() {
             <h4 className="font-display font-bold text-lg mb-6">Quick Links</h4>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li><Link to="/courses" className="hover:text-white transition-colors">All Courses</Link></li>
-              <li><Link to="/placements" className="hover:text-white transition-colors">Placement Support</Link></li>
+
               <li><Link to="/about" className="hover:text-white transition-colors">About Institute</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
             </ul>
@@ -55,23 +55,23 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="text-brand-accent shrink-0" size={20} />
                 <span className="text-gray-400 text-sm">
-                  123 Healthcare Plaza, Medical District,<br />Chennai, Tamil Nadu - 600001
+                  55M, TNHB, Rajiv gandhi street, Pallavan Nagar,<br />Kanchipuram - 631501
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-brand-accent shrink-0" size={18} />
-                <span className="text-gray-400 text-sm">+91 98765 43210</span>
+                <span className="text-gray-400 text-sm">+91 84895 64699</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-brand-accent shrink-0" size={18} />
-                <span className="text-gray-400 text-sm">info@pvdphealth.com</span>
+                <span className="text-gray-400 text-sm">pvdhealthcare@gmail.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} PVD Padhividass Healthcare. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} PVD Padhvidass Healthcare. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white">Privacy Policy</a>
             <a href="#" className="hover:text-white">Terms of Service</a>

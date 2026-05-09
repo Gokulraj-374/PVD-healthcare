@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Courses from './pages/Courses';
-import Placements from './pages/Placements';
+
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 
@@ -22,15 +22,15 @@ function PageHead() {
   
   useEffect(() => {
     const titleMap: Record<string, string> = {
-      '/': 'Home | PVD Padhividass Healthcare Training',
-      '/about': 'About Us | PVD Padhividass Healthcare',
+      '/': 'Home | PVD Padhvidass Healthcare Training',
+      '/about': 'About Us | PVD Padhvidass Healthcare',
       '/courses': 'Medical Coding Courses | CPC Certification',
-      '/placements': 'Placement Support | Careers in Medical Coding',
+
       '/contact': 'Contact Us | Free Demo Session',
-      '/admin': 'Admin Dashboard | PVD Padhividass'
+      '/admin': 'Admin Dashboard | PVD Padhvidass'
     };
     
-    document.title = titleMap[pathname] || 'PVD Padhividass Healthcare';
+    document.title = titleMap[pathname] || 'PVD Padhvidass Healthcare';
   }, [pathname]);
   
   return null;
@@ -48,7 +48,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/courses" element={<Courses />} />
-            <Route path="/placements" element={<Placements />} />
+
             <Route path="/contact" element={<Contact />} />
             <Route path="/admin" element={<Admin />} />
           </Routes>

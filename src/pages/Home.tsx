@@ -32,9 +32,9 @@ export default function Home() {
                 <span className="text-sm font-semibold text-brand-primary">AAPC Authorized Training Partner</span>
               </div>
               
-              <h1 className="text-5xl lg:text-7xl font-display font-bold text-brand-primary leading-[1.1]">
-                Become a Certified <br />
-                <span className="text-brand-orange">Medical Coder</span> with <br />
+              <h1 className="hero-heading font-display font-bold text-brand-primary leading-[1.1]">
+                Become a Certified <br className="hidden sm:block" />
+                <span className="text-brand-orange">Medical Coder</span> with <br className="hidden sm:block" />
                 100% Pass Guarantee
               </h1>
               

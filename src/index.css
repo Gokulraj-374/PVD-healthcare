@@ -36,3 +36,40 @@
 .glass {
   @apply bg-white/80 backdrop-blur-md border border-white/20;
 }
+
+/* --- Universal Media Queries for All Devices --- */
+
+/* Mobile Portrait (Small Devices) */
+@media (max-width: 480px) {
+  .hero-heading {
+    @apply text-4xl leading-[1.2];
+  }
+}
+
+/* Tablets and Large Phones */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-heading {
+    @apply text-5xl leading-[1.1];
+  }
+}
+
+/* Laptops and Smaller Desktops */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-heading {
+    @apply text-6xl;
+  }
+}
+
+/* Large Desktops */
+@media (min-width: 1025px) {
+  .hero-heading {
+    @apply text-7xl;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+}

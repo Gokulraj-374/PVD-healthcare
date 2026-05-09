@@ -50,12 +50,12 @@ export const COURSES: Course[] = [
     image: 'cpc-certification.png'
   },
   {
-    id: 'css-certification',
-    title: 'CSS Certification Training',
-    description: 'Master Clinical Systems Specialist (CSS) requirements and coding accuracy.',
+    id: 'ccs-certification',
+    title: 'CCS Certification Training',
+    description: 'Master Certified Coding Specialist (CCS) requirements and coding accuracy.',
     duration: '3 Months',
     eligibility: 'Life Science Degree or CPC Holders',
-    certification: 'Clinical Systems Specialist Certification',
+    certification: 'Certified Coding Specialist Certification',
     syllabus: [
       'Medical Record Documentation Standards',
       'IP DRG Coding',
@@ -63,7 +63,7 @@ export const COURSES: Course[] = [
       'Revenue Cycle Management',
       'Data Analytics in Healthcare'
     ],
-    image: 'css-certification.png'
+    image: 'ccs-certification.png'
   }
 ];
 

@@ -45,7 +45,7 @@ export default function Footer() {
               <li><span className="hover:text-white cursor-help">CPC Certification</span></li>
               <li><span className="hover:text-white cursor-help">Medical Billing</span></li>
               <li><span className="hover:text-white cursor-help">ICD-10 Training</span></li>
-              <li><span className="hover:text-white cursor-help">CSS Preparation</span></li>
+              <li><span className="hover:text-white cursor-help">CCS Preparation</span></li>
             </ul>
           </div>
 

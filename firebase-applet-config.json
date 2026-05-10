@@ -1,10 +1,9 @@
 {
-  "projectId": "remixed-project-id",
-  "appId": "remixed-app-id",
-  "apiKey": "remixed-api-key",
-  "authDomain": "remixed-auth-domain",
-  "firestoreDatabaseId": "remixed-firestore-database-id",
-  "storageBucket": "remixed-storage-bucket",
-  "messagingSenderId": "remixed-messaging-sender-id",
-  "measurementId": "remixed-measurement-id"
+  "projectId": "pvd-healthcare",
+  "appId": "1:207214020550:web:d3a3031cd447b86a2754c7",
+  "apiKey": "AIzaSyCH4sjwjR6LdW6iIgVQpR2rDryc7VP4ahM",
+  "authDomain": "pvd-healthcare.firebaseapp.com",
+  "storageBucket": "pvd-healthcare.firebasestorage.app",
+  "messagingSenderId": "207214020550",
+  "measurementId": "G-HGLHG8993L"
 }

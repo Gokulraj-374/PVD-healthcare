@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, MessageSquare, Clock, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageSquare, Clock, Globe, ExternalLink } from 'lucide-react';
 import LeadForm from '../components/LeadForm';
 
 export default function Contact() {
@@ -75,19 +75,38 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Map Integration Placeholder */}
+        {/* Map Integration */}
         <section className="mt-32">
-          <div className="w-full h-[400px] bg-gray-100 rounded-[3rem] overflow-hidden shadow-inner relative group">
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-gray-400 bg-gray-50 group-hover:bg-gray-100 transition-colors">
-              <Globe size={48} className="animate-pulse" />
-              <p className="font-display font-bold text-xl uppercase tracking-widest">Google Maps Integration</p>
-              <p className="text-sm">Chennai Training Center Location</p>
-              <button className="mt-4 bg-white px-6 py-2 rounded-full border border-gray-200 text-xs font-bold hover:shadow-md transition-all">
-                Open in Google Maps
-              </button>
+          <div className="w-full h-[500px] bg-white rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white relative group">
+            <iframe 
+              title="Kanchipuram Training Center Map"
+              className="w-full h-full grayscale-[0.2] contrast-[1.1]"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15563.151187421162!2d79.68962534571168!3d12.834399715505055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52c3c393798933%3A0xc3f83737ec3a1d95!2sKanchipuram%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1714560000000!5m2!1sen!2sin"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            
+            <div className="absolute bottom-8 left-8 right-8 md:right-auto md:w-96 glass p-6 rounded-2xl shadow-xl border border-white/40">
+              <div className="flex gap-4">
+                <div className="w-12 h-12 bg-brand-orange text-white rounded-xl flex items-center justify-center shrink-0">
+                  <MapPin size={24} />
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-bold text-brand-primary">Kanchipuram Training Center</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed">55M, TNHB, Rajiv gandhi street, Pallavan Nagar, 631501</p>
+                  <a 
+                    href="https://maps.app.goo.gl/YourKanchipuramLocationLink" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[10px] font-bold text-brand-orange uppercase tracking-wider mt-2 hover:underline"
+                  >
+                    Open in Google Maps
+                    <ExternalLink size={12} />
+                  </a>
+                </div>
+              </div>
             </div>
-            {/* Real iframe mapping would go here */}
-            {/* <iframe title="map" className="w-full h-full" src="..." /> */}
           </div>
         </section>
       </div>

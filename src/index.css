@@ -15,6 +15,7 @@
   --color-brand-primary: var(--color-brand-dark-blue);
   --color-brand-accent: var(--color-brand-orange);
   --color-brand-light: #fff7ed; /* Orange 50 */
+  --color-brand-golden: #d97706; /* Amber 600 */
 
   --background-orange-gradient: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
   --background-pink-gradient: linear-gradient(135deg, #db2777 0%, #ef4444 100%);

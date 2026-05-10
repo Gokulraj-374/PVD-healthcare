@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, ChevronUp, Clock, BookOpen, GraduationCap, CheckCircle2 } from 'lucide-react';
 import { COURSES } from '../constants';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 export default function Courses() {
   const { hash } = useLocation();
@@ -123,12 +123,12 @@ export default function Courses() {
                     <div className="h-px bg-gray-200" />
                     
                     <div className="space-y-4">
-                      <a
-                        href={`/contact?course=${course.id}`}
+                      <Link
+                        to="/contact"
                         className="block w-full text-center bg-orange-grad text-white py-4 rounded-xl font-bold shadow-lg shadow-brand-orange/10 transition-all hover:scale-[1.02]"
                       >
                         Enroll Now
-                      </a>
+                      </Link>
 
                     </div>
                   </div>

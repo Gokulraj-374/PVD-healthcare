@@ -73,18 +73,21 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Priya Dharshini',
     role: 'CPC Certified Coder at Omega Healthcare',
     text: 'PVD Padhvidass changed my career. The 100% pass guarantee is real—I passed CPC on my first attempt!',
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop'
   },
   {
     id: 't2',
     name: 'Rahul Kumar',
     role: 'Medical Coding Auditor',
     text: 'The trainers are industry experts. The practical training helped me land a job in a top MNC.',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop'
   },
   {
     id: 't3',
     name: 'Anjali S.',
     role: 'Medical Billers',
     text: 'Highly recommend for anyone wanting to start in medical coding. Excellent atmosphere and support.',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop'
   }
 ];
 

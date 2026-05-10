@@ -8,8 +8,18 @@ export default function Admin() {
   const [leads, setLeads] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const [password, setPassword] = useState('');
+  const [isAuthorized, setIsAuthorized] = useState(false);
 
   useEffect(() => {
+    if (sessionStorage.getItem('pvd_admin_auth') === 'true') {
+      setIsAuthorized(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isAuthorized) return;
+    
     const q = query(collection(db, 'leads'), orderBy('createdAt', 'desc'));
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const leadsData = snapshot.docs.map(doc => ({
@@ -21,7 +31,56 @@ export default function Admin() {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [isAuthorized]);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === 'admin@pvd') {
+      setIsAuthorized(true);
+      sessionStorage.setItem('pvd_admin_auth', 'true');
+    } else {
+      alert('Incorrect password');
+    }
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('pvd_admin_auth');
+    setIsAuthorized(false);
+    setLeads([]);
+  };
+
+  if (!isAuthorized) {
+    return (
+      <div className="pt-32 pb-24 bg-gray-50 min-h-screen flex items-center justify-center px-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="max-w-md w-full bg-white p-10 rounded-[2.5rem] shadow-2xl space-y-8"
+        >
+          <div className="text-center space-y-2">
+            <h1 className="text-3xl font-display font-bold text-brand-primary">Admin Access</h1>
+            <p className="text-gray-500 text-sm">Please enter the administrator password to view leads.</p>
+          </div>
+          <form onSubmit={handleLogin} className="space-y-6">
+            <input 
+              type="password"
+              placeholder="Enter password"
+              className="w-full px-6 py-4 rounded-xl border border-gray-200 focus:border-brand-orange outline-none transition-all text-center text-lg tracking-widest font-mono"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              autoFocus
+            />
+            <button 
+              type="submit"
+              className="w-full bg-brand-primary text-white py-4 rounded-xl font-bold hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"
+            >
+              Unlock Dashboard
+            </button>
+          </form>
+        </motion.div>
+      </div>
+    );
+  }
 
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this lead?')) {
@@ -67,13 +126,21 @@ export default function Admin() {
             <h1 className="text-4xl font-display font-bold text-brand-primary">Leads Dashboard</h1>
             <p className="text-gray-500">Manage student inquiries and course enrollments.</p>
           </div>
-          <button 
-            onClick={exportLeads}
-            className="bg-brand-primary text-white px-6 py-3 rounded-xl font-bold flex items-center gap-2 hover:bg-brand-primary/95 transition-all shadow-lg"
-          >
-            <Download size={20} />
-            Export CSV
-          </button>
+          <div className="flex flex-wrap gap-4 w-full md:w-auto">
+            <button 
+              onClick={exportLeads}
+              className="flex-grow md:flex-grow-0 bg-white text-brand-primary border border-gray-200 px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-all shadow-sm"
+            >
+              <Download size={20} />
+              Export CSV
+            </button>
+            <button 
+              onClick={handleLogout}
+              className="flex-grow md:flex-grow-0 bg-red-50 text-red-600 px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-red-100 transition-all"
+            >
+              Logout
+            </button>
+          </div>
         </header>
 
         <div className="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden">

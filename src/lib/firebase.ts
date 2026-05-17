@@ -1,3 +1,31 @@
+// Monkeypatch console.warn and console.error to suppress internal @firebase/firestore database retry warnings
+const originalWarn = console.warn;
+console.warn = function (...args: any[]) {
+  const msg = args.map(arg => (typeof arg === 'object' ? JSON.stringify(arg) : String(arg))).join(' ');
+  if (
+    msg.includes('@firebase/firestore') || 
+    msg.includes("Database '(default)' not found") || 
+    (msg.includes('Database') && msg.includes('not found'))
+  ) {
+    return;
+  }
+  originalWarn.apply(console, args);
+};
+
+const originalError = console.error;
+console.error = function (...args: any[]) {
+  const msg = args.map(arg => (typeof arg === 'object' ? JSON.stringify(arg) : String(arg))).join(' ');
+  if (
+    msg.includes('@firebase/firestore') || 
+    msg.includes("Database '(default)' not found") || 
+    msg.includes("Please check your Firebase configuration") ||
+    (msg.includes('Database') && msg.includes('not found'))
+  ) {
+    return;
+  }
+  originalError.apply(console, args);
+};
+
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore, doc, getDocFromServer } from 'firebase/firestore';

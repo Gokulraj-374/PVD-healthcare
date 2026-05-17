@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -18,7 +18,6 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               {[
-                { Icon: Facebook, href: '#' },
                 { Icon: Instagram, href: 'https://www.instagram.com/pvd_healthcare?igsh=bDI2Zzd5aXE0ejRz&utm_source=qr' },
                 { Icon: Linkedin, href: '#' }
               ].map(({ Icon, href }, i) => (

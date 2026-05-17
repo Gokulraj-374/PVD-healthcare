@@ -1,10 +1,10 @@
 {
-  "projectId": "pvd-healthcare",
-  "appId": "1:207214020550:web:7ba2133d178d9d7f2754c7",
-  "apiKey": "AIzaSyCH4sjwjR6ldW6iIgVQpR2rDryc7VP4ahM",
-  "authDomain": "pvd-healthcare.firebaseapp.com",
-  "storageBucket": "pvd-healthcare.firebasestorage.app",
-  "messagingSenderId": "207214020550",
-  "measurementId": "G-S9RFB4PLKW",
+  "projectId": "PLACEHOLDER_IN_ENV",
+  "appId": "PLACEHOLDER_IN_ENV",
+  "apiKey": "PLACEHOLDER_IN_ENV",
+  "authDomain": "PLACEHOLDER_IN_ENV",
+  "storageBucket": "PLACEHOLDER_IN_ENV",
+  "messagingSenderId": "PLACEHOLDER_IN_ENV",
+  "measurementId": "PLACEHOLDER_IN_ENV",
   "firestoreDatabaseId": "(default)"
 }

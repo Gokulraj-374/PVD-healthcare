@@ -1,4 +1,4 @@
-import { collection, addDoc, serverTimestamp, query, orderBy, onSnapshot, deleteDoc, doc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp, query, orderBy, onSnapshot, doc } from 'firebase/firestore';
 import { db } from './firebase';
 
 export interface Lead {
@@ -12,6 +12,7 @@ export interface Lead {
 }
 
 const LOCAL_LEADS_KEY = 'pvd_local_leads';
+const DELETED_LEADS_KEY = 'pvd_deleted_lead_ids';
 
 // Active Firestore health state
 let isFirestoreAvailable = true;
@@ -41,6 +42,26 @@ export function saveLocalLeads(leads: Lead[]): void {
     localStorage.setItem(LOCAL_LEADS_KEY, JSON.stringify(leads));
   } catch (e) {
     console.error("Failed to write local leads:", e);
+  }
+}
+
+// Helper to get locally hidden/deleted lead IDs
+export function getDeletedLeadIds(): string[] {
+  try {
+    const raw = localStorage.getItem(DELETED_LEADS_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    console.error("Failed to read deleted lead IDs:", e);
+    return [];
+  }
+}
+
+// Helper to save locally hidden/deleted lead IDs
+export function saveDeletedLeadIds(ids: string[]): void {
+  try {
+    localStorage.setItem(DELETED_LEADS_KEY, JSON.stringify(ids));
+  } catch (e) {
+    console.error("Failed to save deleted lead IDs:", e);
   }
 }
 
@@ -93,7 +114,11 @@ export function subscribeToLeads(
   const handleUpdate = (firestoreLeads: Lead[]) => {
     const localLeads = getLocalLeads();
     // Combine both sets of leads
-    const combined = [...firestoreLeads, ...localLeads];
+    let combined = [...firestoreLeads, ...localLeads];
+    
+    // Filter out locally deleted/hidden leads
+    const deletedIds = getDeletedLeadIds();
+    combined = combined.filter(lead => lead.id && !deletedIds.includes(lead.id));
     
     // Sort combined list by date (descending)
     combined.sort((a, b) => {
@@ -151,22 +176,19 @@ export function subscribeToLeads(
   }
 }
 
-// Delete a lead (from Firestore, localStorage, or both)
+// Delete a lead (hides it locally on the admin page but does NOT delete it from the cloud database)
 export async function deleteLead(leadId: string): Promise<void> {
-  // If it's a local-only lead or Firestore is disabled, don't touch Firestore
-  if (!leadId.startsWith('local_') && isFirestoreAvailable) {
-    try {
-      await deleteDoc(doc(db, 'leads', leadId));
-    } catch (err: any) {
-      console.warn("Firestore delete failed, lead may be local or network issue:", err);
-      if (err.message?.includes("not found") || err.message?.includes("Database")) {
-        disableFirestore(err);
-      }
-    }
+  // Add to locally hidden/deleted leads list so it's filtered out from the view
+  const deletedIds = getDeletedLeadIds();
+  if (!deletedIds.includes(leadId)) {
+    deletedIds.push(leadId);
+    saveDeletedLeadIds(deletedIds);
   }
 
-  // Remove from local storage
-  const currentLeads = getLocalLeads();
-  const updatedLeads = currentLeads.filter(l => l.id !== leadId);
-  saveLocalLeads(updatedLeads);
+  // If it's a local-only lead, we can also remove it from local storage to save space
+  if (leadId.startsWith('local_')) {
+    const currentLeads = getLocalLeads();
+    const updatedLeads = currentLeads.filter(l => l.id !== leadId);
+    saveLocalLeads(updatedLeads);
+  }
 }

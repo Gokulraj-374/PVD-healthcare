@@ -17,10 +17,16 @@ export default function Footer() {
               Empowering healthcare professionals through world-class medical coding training and global certifications.
             </p>
             <div className="flex gap-4">
-              {[Facebook, Instagram, Linkedin].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: '#' },
+                { Icon: Instagram, href: 'https://www.instagram.com/pvd_healthcare?igsh=bDI2Zzd5aXE0ejRz&utm_source=qr' },
+                { Icon: Linkedin, href: '#' }
+              ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={href}
+                  target={href !== '#' ? '_blank' : undefined}
+                  rel={href !== '#' ? 'noopener noreferrer' : undefined}
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-all"
                 >
                   <Icon size={18} />

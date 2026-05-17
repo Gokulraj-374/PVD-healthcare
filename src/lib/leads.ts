@@ -13,6 +13,17 @@ export interface Lead {
 
 const LOCAL_LEADS_KEY = 'pvd_local_leads';
 
+// Active Firestore health state
+let isFirestoreAvailable = true;
+
+// Helper to disable Firestore
+function disableFirestore(reason: any) {
+  if (isFirestoreAvailable) {
+    console.warn("Disabling Firestore integration due to configuration or connection error:", reason);
+    isFirestoreAvailable = false;
+  }
+}
+
 // Helper to get local leads
 export function getLocalLeads(): Lead[] {
   try {
@@ -42,29 +53,36 @@ export async function submitLead(leadData: Omit<Lead, 'id' | 'createdAt'>): Prom
     createdAt: new Date().toISOString()
   };
 
-  try {
-    // Attempt Firestore write with a 3-second timeout
-    const firebasePromise = addDoc(collection(db, 'leads'), {
-      ...leadData,
-      createdAt: serverTimestamp()
-    });
+  if (isFirestoreAvailable) {
+    try {
+      // Attempt Firestore write with a 3-second timeout
+      const firebasePromise = addDoc(collection(db, 'leads'), {
+        ...leadData,
+        createdAt: serverTimestamp()
+      });
 
-    const timeoutPromise = new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new Error('Firestore timeout')), 3000)
-    );
+      const timeoutPromise = new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error('Firestore timeout')), 3000)
+      );
 
-    await Promise.race([firebasePromise, timeoutPromise]);
-    return { success: true, isLocal: false };
-  } catch (error) {
-    console.warn("Firestore save failed or timed out. Falling back to local storage:", error);
-    
-    // Save to local storage
-    const currentLeads = getLocalLeads();
-    currentLeads.push(newLead);
-    saveLocalLeads(currentLeads);
-    
-    return { success: true, isLocal: true };
+      await Promise.race([firebasePromise, timeoutPromise]);
+      return { success: true, isLocal: false };
+    } catch (error: any) {
+      console.warn("Firestore save failed or timed out. Falling back to local storage:", error);
+      
+      // If it's a fatal project configuration issue, disable permanently to prevent loop spams
+      if (error.message?.includes("not found") || error.message?.includes("config") || error.message?.includes("Database") || error.message?.includes("permission")) {
+        disableFirestore(error);
+      }
+    }
   }
+
+  // Save to local storage
+  const currentLeads = getLocalLeads();
+  currentLeads.push(newLead);
+  saveLocalLeads(currentLeads);
+  
+  return { success: true, isLocal: true };
 }
 
 // Subscribe to leads (merges Firestore real-time updates and localStorage)
@@ -90,9 +108,17 @@ export function subscribeToLeads(
     onUpdate(combined);
   };
 
+  if (!isFirestoreAvailable) {
+    handleUpdate([]);
+    return () => {};
+  }
+
   try {
     const q = query(collection(db, 'leads'), orderBy('createdAt', 'desc'));
-    const unsubscribe = onSnapshot(q, 
+    
+    let unsubscribe: () => void = () => {};
+    
+    unsubscribe = onSnapshot(q, 
       (snapshot) => {
         const firestoreLeads = snapshot.docs.map(doc => ({
           id: doc.id,
@@ -102,14 +128,24 @@ export function subscribeToLeads(
       },
       (error) => {
         console.warn("Firestore subscription failed. Falling back to local storage:", error);
+        
+        // Permanently disable if configuration is wrong, and instantly cancel retry listener
+        if (error.message?.includes("not found") || error.message?.includes("Database") || error.message?.includes("project") || error.message?.includes("permission")) {
+          disableFirestore(error);
+          unsubscribe(); // Stop retrying loop immediately!
+        }
+        
         handleUpdate([]);
         if (onError) onError(error);
       }
     );
     
-    return unsubscribe;
+    return () => {
+      unsubscribe();
+    };
   } catch (error: any) {
     console.warn("Failed to initialize Firestore listener. Sticking to local storage:", error);
+    disableFirestore(error);
     handleUpdate([]);
     return () => {};
   }
@@ -117,12 +153,15 @@ export function subscribeToLeads(
 
 // Delete a lead (from Firestore, localStorage, or both)
 export async function deleteLead(leadId: string): Promise<void> {
-  // If it's a local-only lead, we don't need to touch Firestore
-  if (!leadId.startsWith('local_')) {
+  // If it's a local-only lead or Firestore is disabled, don't touch Firestore
+  if (!leadId.startsWith('local_') && isFirestoreAvailable) {
     try {
       await deleteDoc(doc(db, 'leads', leadId));
-    } catch (err) {
+    } catch (err: any) {
       console.warn("Firestore delete failed, lead may be local or network issue:", err);
+      if (err.message?.includes("not found") || err.message?.includes("Database")) {
+        disableFirestore(err);
+      }
     }
   }
 

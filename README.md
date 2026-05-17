@@ -1,8 +1,8 @@
-# 🩺 PVD Padhividass Healthcare Academy
+# 🩺 PVD Healthcare Academy
 
 > **Best-in-Class Medical Coding Training Academy with 100% Pass & Placement Guarantee.**
 
-Welcome to the official repository for the **PVD Padhividass Healthcare** web platform. This website is built using modern web design principles and state-of-the-art architectures to deliver an ultra-premium, fast, and fully responsive user experience.
+Welcome to the official repository for the **PVD Healthcare** web platform. This website is built using modern web design principles and state-of-the-art architectures to deliver an ultra-premium, fast, and fully responsive user experience.
 
 ---
 
@@ -83,4 +83,4 @@ This compiles optimized chunks (react, firebase, icons) and exports them cleanly
 ---
 
 ## 🛡️ License
-Designed and maintained by the **PVD Padhividass Healthcare Team**. All rights reserved.
+Designed and maintained by the **PVD Healthcare Team**. All rights reserved.

@@ -35,16 +35,13 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 group">
             <div className="flex items-center justify-center group-hover:rotate-6 transition-transform">
-              <img src="logo.png" alt="PVD Padhvidass Logo" className="w-16 h-16 object-contain brightness-90" />
+              <img src="logo.png" alt="PVD Healthcare Logo" className="w-16 h-16 object-contain brightness-90" />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-bold text-lg leading-tight text-brand-primary">
                 PVD
               </span>
-              <span className="text-[9px] text-gray-400 font-medium -mt-1 italic">
-                (Padhvidass)
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-brand-orange font-bold">
+              <span className="text-[10px] uppercase tracking-widest text-brand-orange font-bold -mt-0.5">
                 Healthcare Training
               </span>
             </div>

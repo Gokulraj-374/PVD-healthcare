@@ -9,9 +9,9 @@ export default function Footer() {
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2 group">
               <div className="flex items-center justify-center group-hover:rotate-6 transition-transform">
-                <img src="logo.png" alt="PVD Padhvidass Logo" className="w-16 h-16 object-contain brightness-90" />
+                <img src="logo.png" alt="PVD Healthcare Logo" className="w-16 h-16 object-contain brightness-90" />
               </div>
-              <span className="font-display font-bold text-xl">PVD Padhvidass</span>
+              <span className="font-display font-bold text-xl">PVD Healthcare</span>
             </Link>
             <p className="text-gray-400 leading-relaxed text-sm">
               Empowering healthcare professionals through world-class medical coding training and global certifications.
@@ -77,7 +77,7 @@ export default function Footer() {
         </div>
 
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} PVD Padhvidass Healthcare. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} PVD Healthcare. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white">Privacy Policy</a>
             <a href="#" className="hover:text-white">Terms of Service</a>

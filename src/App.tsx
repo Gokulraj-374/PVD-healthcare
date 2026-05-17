@@ -23,15 +23,15 @@ function PageHead() {
   
   useEffect(() => {
     const titleMap: Record<string, string> = {
-      '/': 'Home | PVD Padhvidass Healthcare Training',
-      '/about': 'About Us | PVD Padhvidass Healthcare',
+      '/': 'Home | PVD Healthcare Training',
+      '/about': 'About Us | PVD Healthcare',
       '/courses': 'Medical Coding Courses | CPC Certification',
 
       '/contact': 'Contact Us | Free Demo Session',
-      '/admin': 'Admin Dashboard | PVD Padhvidass'
+      '/admin': 'Admin Dashboard | PVD Healthcare'
     };
     
-    document.title = titleMap[pathname] || 'PVD Padhvidass Healthcare';
+    document.title = titleMap[pathname] || 'PVD Healthcare';
   }, [pathname]);
   
   return null;

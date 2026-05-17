@@ -7,7 +7,7 @@ export const COURSES: Course[] = [
     description: 'Perfect for beginners looking to enter the healthcare industry. Covers anatomy, physiology, and basic coding systems.',
     duration: '2 Months',
     eligibility: 'Life Science Graduate / Any Degree',
-    certification: 'PVD Padhvidass Course Completion Certificate',
+    certification: 'PVD Course Completion Certificate',
     syllabus: [
       'Anatomy and Physiology',
       'Medical Terminology',
@@ -72,7 +72,7 @@ export const TESTIMONIALS: Testimonial[] = [
     id: 't1',
     name: 'Priya Dharshini',
     role: 'CPC Certified Coder at Omega Healthcare',
-    text: 'PVD Padhvidass changed my career. The 100% pass guarantee is real—I passed CPC on my first attempt!',
+    text: 'PVD Healthcare changed my career. The 100% pass guarantee is real—I passed CPC on my first attempt!',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop'
   },
   {

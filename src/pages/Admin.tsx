@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
-import { collection, query, orderBy, onSnapshot, deleteDoc, doc } from 'firebase/firestore';
-import { db } from '../lib/firebase';
+import { subscribeToLeads, deleteLead } from '../lib/leads';
 import { Trash2, Phone, Mail, Clock, Download, Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -10,6 +9,7 @@ export default function Admin() {
   const [searchTerm, setSearchTerm] = useState('');
   const [password, setPassword] = useState('');
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
 
   useEffect(() => {
     if (sessionStorage.getItem('pvd_admin_auth') === 'true') {
@@ -20,12 +20,7 @@ export default function Admin() {
   useEffect(() => {
     if (!isAuthorized) return;
     
-    const q = query(collection(db, 'leads'), orderBy('createdAt', 'desc'));
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const leadsData = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      }));
+    const unsubscribe = subscribeToLeads((leadsData) => {
       setLeads(leadsData);
       setLoading(false);
     });
@@ -82,14 +77,8 @@ export default function Admin() {
     );
   }
 
-  const handleDelete = async (id: string) => {
-    if (window.confirm('Are you sure you want to delete this lead?')) {
-      try {
-        await deleteDoc(doc(db, 'leads', id));
-      } catch (err) {
-        console.error("Error deleting lead:", err);
-      }
-    }
+  const handleDelete = (id: string) => {
+    setDeleteConfirmId(id);
   };
 
   const filteredLeads = leads.filter(lead => 
@@ -107,7 +96,7 @@ export default function Admin() {
           l.phone, 
           l.courseInterest, 
           l.message?.replace(/,/g, ' '), 
-          l.createdAt?.toDate().toLocaleString()
+          l.createdAt ? (l.createdAt.toDate ? l.createdAt.toDate().toLocaleString() : new Date(l.createdAt).toLocaleString()) : ''
         ].join(",")).join("\n");
     
     const encodedUri = encodeURI(csvContent);
@@ -216,7 +205,7 @@ export default function Admin() {
                       <td className="px-8 py-6">
                         <div className="flex items-center gap-2 text-sm text-gray-500">
                           <Clock size={14} />
-                          {lead.createdAt?.toDate().toLocaleDateString()}
+                          {lead.createdAt ? (lead.createdAt.toDate ? lead.createdAt.toDate().toLocaleDateString() : new Date(lead.createdAt).toLocaleDateString()) : ''}
                         </div>
                       </td>
                       <td className="px-8 py-6">
@@ -235,6 +224,47 @@ export default function Admin() {
           </div>
         </div>
       </div>
+
+      {/* Custom Confirmation Modal */}
+      <AnimatePresence>
+        {deleteConfirmId && (
+          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[200] flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-white p-8 rounded-3xl max-w-sm w-full shadow-2xl space-y-6 text-center border border-gray-100"
+            >
+              <div className="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center mx-auto">
+                <Trash2 size={32} />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-display font-bold text-brand-primary">Delete Lead Inquiry?</h3>
+                <p className="text-gray-500 text-sm">Are you sure you want to permanently delete this lead? This action cannot be undone.</p>
+              </div>
+              <div className="flex gap-4">
+                <button
+                  onClick={() => setDeleteConfirmId(null)}
+                  className="flex-grow bg-gray-50 text-gray-500 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={async () => {
+                    if (deleteConfirmId) {
+                      await deleteLead(deleteConfirmId);
+                      setDeleteConfirmId(null);
+                    }
+                  }}
+                  className="flex-grow bg-red-600 text-white py-3 rounded-xl font-bold hover:bg-red-700 transition-all shadow-lg shadow-red-600/10"
+                >
+                  Delete
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

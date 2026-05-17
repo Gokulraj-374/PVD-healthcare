@@ -96,7 +96,7 @@ export default function Contact() {
                   <h4 className="font-bold text-brand-primary">Kanchipuram Training Center</h4>
                   <p className="text-xs text-gray-500 leading-relaxed">55M, TNHB, Rajiv gandhi street, Pallavan Nagar, 631501</p>
                   <a 
-                    href="https://maps.app.goo.gl/YourKanchipuramLocationLink" 
+                    href="https://maps.google.com/?q=Kanchipuram,+Tamil+Nadu,+India" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-[10px] font-bold text-brand-orange uppercase tracking-wider mt-2 hover:underline"

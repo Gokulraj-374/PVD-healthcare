@@ -1,13 +1,14 @@
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Courses from './pages/Courses';
 
-import Contact from './pages/Contact';
-import Admin from './pages/Admin';
+// Route-level code splitting
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Courses = lazy(() => import('./pages/Courses'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Admin = lazy(() => import('./pages/Admin'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,6 +37,15 @@ function PageHead() {
   return null;
 }
 
+function RouteLoading() {
+  return (
+    <div className="min-h-[60vh] flex flex-col items-center justify-center space-y-4">
+      <div className="w-12 h-12 border-4 border-orange-100 border-t-brand-orange rounded-full animate-spin" />
+      <p className="text-gray-400 text-sm font-semibold tracking-wide uppercase">Loading page...</p>
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <Router>
@@ -44,14 +54,16 @@ export default function App() {
       <div className="min-h-screen flex flex-col selection:bg-teal-100 selection:text-teal-900">
         <Navbar />
         <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/courses" element={<Courses />} />
+          <Suspense fallback={<RouteLoading />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/courses" element={<Courses />} />
 
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/admin" element={<Admin />} />
-          </Routes>
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/admin" element={<Admin />} />
+            </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

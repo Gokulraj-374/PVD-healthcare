@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, CheckCircle2 } from 'lucide-react';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from '../lib/firebase';
+import { submitLead } from '../lib/leads';
 import { COURSES } from '../constants';
 
 export default function LeadForm() {
@@ -20,12 +19,13 @@ export default function LeadForm() {
     setStatus('submitting');
 
     try {
-      await addDoc(collection(db, 'leads'), {
-        ...formData,
-        createdAt: serverTimestamp()
-      });
-      setStatus('success');
-      setFormData({ name: '', email: '', phone: '', courseInterest: '', message: '' });
+      const result = await submitLead(formData);
+      if (result.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', courseInterest: '', message: '' });
+      } else {
+        setStatus('error');
+      }
     } catch (err) {
       console.error(err);
       setStatus('error');

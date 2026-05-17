@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, MessageSquare, Clock, Globe, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageSquare, Clock, Globe, ExternalLink, Instagram } from 'lucide-react';
 import LeadForm from '../components/LeadForm';
 
 export default function Contact() {
@@ -9,21 +9,32 @@ export default function Contact() {
       title: 'Call Us',
       value: '+91 84895 64699',
       desc: 'Mon-Sat: 9:00 AM - 6:00 PM',
-      color: 'bg-blue-50 text-blue-600'
+      color: 'bg-blue-50 text-blue-600',
+      href: 'tel:+918489564699'
     },
     {
       icon: Mail,
       title: 'Email Us',
       value: 'pvdhealthcare@gmail.com',
       desc: 'We reply within 24 hours',
-      color: 'bg-violet-50 text-brand-violet'
+      color: 'bg-violet-50 text-brand-violet',
+      href: 'mailto:pvdhealthcare@gmail.com'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
       value: 'Kanchipuram, Tamil Nadu',
       desc: '55M, TNHB, Rajiv gandhi street, Pallavan Nagar, 631501',
-      color: 'bg-amber-50 text-amber-600'
+      color: 'bg-amber-50 text-amber-600',
+      href: 'https://maps.google.com/?q=Kanchipuram,+Tamil+Nadu,+India'
+    },
+    {
+      icon: Instagram,
+      title: 'Instagram',
+      value: '@pvd_healthcare',
+      desc: 'Follow us for latest updates & tips',
+      color: 'bg-rose-50 text-rose-600',
+      href: 'https://www.instagram.com/pvd_healthcare?igsh=bDI2Zzd5aXE0ejRz&utm_source=qr'
     }
   ];
 
@@ -44,18 +55,24 @@ export default function Contact() {
               </p>
             </header>
 
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {contactInfo.map((item, i) => (
-                <div key={i} className="flex gap-6 p-6 rounded-[2rem] border border-gray-100 bg-white hover:shadow-lg transition-all group">
+                <a 
+                  key={i} 
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="flex gap-6 p-6 rounded-[2rem] border border-gray-100 bg-white hover:shadow-xl hover:-translate-y-1 transition-all group cursor-pointer"
+                >
                    <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>
                      <item.icon size={28} />
                    </div>
                    <div className="space-y-1">
                      <h4 className="font-bold text-lg text-brand-primary">{item.title}</h4>
-                     <p className="text-gray-900 font-semibold">{item.value}</p>
-                     <p className="text-sm text-gray-500">{item.desc}</p>
+                     <p className="text-gray-900 font-semibold text-sm sm:text-base break-all">{item.value}</p>
+                     <p className="text-xs text-gray-500">{item.desc}</p>
                    </div>
-                </div>
+                </a>
               ))}
             </div>
 

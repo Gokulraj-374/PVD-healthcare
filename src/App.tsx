@@ -22,16 +22,37 @@ function PageHead() {
   const { pathname } = useLocation();
   
   useEffect(() => {
-    const titleMap: Record<string, string> = {
-      '/': 'Home | PVD Healthcare Training',
-      '/about': 'About Us | PVD Healthcare',
-      '/courses': 'Medical Coding Courses | CPC Certification',
-
-      '/contact': 'Contact Us | Free Demo Session',
-      '/admin': 'Admin Dashboard | PVD Healthcare'
+    const metadataMap: Record<string, { title: string; description: string }> = {
+      '/': {
+        title: 'Home | PVD Healthcare Training',
+        description: 'Master Medical Coding, CPC Certification, and Medical Billing with PVD Healthcare. AAPC Authorized Training Partner providing 100% placement and pass guarantee in India.'
+      },
+      '/about': {
+        title: 'About Us | PVD Healthcare',
+        description: 'Learn about PVD Healthcare, an AAPC Authorized Partner dedicated to providing top-tier medical coding training and career placement.'
+      },
+      '/courses': {
+        title: 'Medical Coding Courses | CPC Certification',
+        description: 'Explore our comprehensive medical coding courses. Get CPC certified with expert instructors, live projects, and guaranteed placement support.'
+      },
+      '/contact': {
+        title: 'Contact Us | Free Demo Session',
+        description: 'Get in touch with PVD Healthcare today. Book a free demo session and start your journey towards a successful medical coding career.'
+      },
+      '/admin': {
+        title: 'Admin Dashboard | PVD Healthcare',
+        description: 'PVD Healthcare administrative dashboard.'
+      }
     };
     
-    document.title = titleMap[pathname] || 'PVD Healthcare';
+    const meta = metadataMap[pathname] || metadataMap['/'];
+    document.title = meta.title;
+    
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', meta.description);
+    }
   }, [pathname]);
   
   return null;

@@ -65,7 +65,7 @@ export default function Home() {
                   ))}
                 </div>
                 <div className="text-sm">
-                  <p className="font-bold text-brand-primary">10,000+</p>
+                  <p className="font-bold text-brand-primary">1000+</p>
                   <p className="text-gray-500">Students Certified</p>
                 </div>
                 <div className="w-px h-10 bg-gray-200" />

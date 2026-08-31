@@ -1,86 +1,204 @@
-# 🩺 PVD Healthcare Academy
+# 🏥 PVD Healthcare – Medical Coding Training Platform
 
-> **Best-in-Class Medical Coding Training Academy with 100% Pass & Placement Guarantee.**
+A modern, responsive website developed for **PVD Healthcare**, a healthcare training institute focused on empowering students and professionals with industry-ready skills in **Medical Coding, Medical Billing, and CPC Certification**.
 
-Welcome to the official repository for the **PVD Healthcare** web platform. This website is built using modern web design principles and state-of-the-art architectures to deliver an ultra-premium, fast, and fully responsive user experience.
+The website provides an informative and engaging platform where students can explore training programs, learn about certifications, view student success stories, and connect with PVD Healthcare for course details and demo sessions.
 
----
+## 🎯 About PVD Healthcare
 
-## ✨ Features
+**PVD Healthcare** provides professional healthcare training designed to help students build successful careers in the medical coding industry.
 
-- 💎 **Premium UI/UX:** Styled using modern fonts (Inter & Outfit), harmony palettes, rich glassmorphism effects, smooth hover micro-animations, and full responsiveness.
-- 📬 **Real-time Student Inquiry Sync:** Leads captured through our customized inquiry forms are synchronized in real-time to your Cloud database.
-- 🛡️ **Self-Healing Firestore Circuit Breaker:** Robust offline capability. If the database connection drops or experiences a configuration mismatch, the app automatically transitions to client-side `localStorage` cache fallback with zero console spams or connection loop locks.
-- 🔒 **Secure Admin Dashboard:** A password-protected student manager dashboard allowing admins to view, audit, and filter inquiries.
-- 🎨 **Non-Destructive Admin Management:** Deleting an inquiry on the Admin dashboard filters and hides it from the client view locally, while permanently preserving the original record in your Cloud database for analytical integrity.
-- 📈 **Perfect SEO & Sharing Cards:** Comprehensive Open Graph (OG) tag parameters mapping so sharing links on Instagram, WhatsApp, or Facebook generates beautiful rich link cards with custom logos and titles.
+The platform focuses on practical learning, certification preparation, and career development with experienced industry trainers.
 
----
+### 🏆 Key Highlights
 
-## 🛠️ Technology Stack
+* 🎓 1000+ Students Certified
+* ⭐ 4.9/5 Student Rating
+* 🏥 AAPC Authorized Training Partner
+* 📚 Industry-focused Medical Coding Training
+* 🧑‍🏫 Expert Trainers
+* 💼 Career-oriented Learning
+* 📜 CPC Certification Preparation
+* 🎯 CPC Pass Guarantee
 
-- **Core Framework:** React 19 + TypeScript + Vite 6
-- **Styling:** Vanilla CSS + TailwindCSS V4
-- **Database & Sync:** Cloud Firestore SDK v12
-- **Authentication:** Firebase Auth
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
+## 📚 Training Programs
 
----
+### 1. Basic Medical Coding Training
 
-## 🚀 Quick Start & Installation
+A beginner-friendly program covering fundamental concepts such as:
 
-### 1. Clone the repository:
-```bash
-git clone https://github.com/Gokulraj-374/PVD-healthcare.git
-cd PVD-healthcare
+* Anatomy
+* Physiology
+* Medical terminology
+* Basic medical coding systems
+* Healthcare documentation
+* Coding fundamentals
+
+**Duration:** 2 Months
+
+### 2. Advanced Medical Coding Training
+
+Designed for learners who want to develop advanced coding knowledge and practical skills.
+
+Topics include:
+
+* Complex coding scenarios
+* Specialized medical coding
+* Auditing
+* Specialty-based coding
+* Advanced healthcare documentation
+
+**Duration:** 3 Months
+
+### 3. CPC Certification Training
+
+A comprehensive preparation program designed for the **AAPC Certified Professional Coder (CPC)** examination.
+
+The program focuses on:
+
+* CPC exam preparation
+* Medical coding concepts
+* Practical coding scenarios
+* Exam-oriented training
+* Certification guidance
+
+**Duration:** 4 Months
+
+## 🌐 Website Features
+
+### 🏠 Modern Landing Page
+
+A professional hero section introduces PVD Healthcare and highlights its medical coding training programs.
+
+### 📚 Course Showcase
+
+Students can explore different training programs with:
+
+* Course overview
+* Duration
+* Course level
+* Program details
+* Enrollment options
+
+### ⭐ Student Success Stories
+
+A dedicated section showcases testimonials from successful students and their career experiences.
+
+### 📝 Demo & Enquiry Form
+
+Students can submit their:
+
+* Full Name
+* Email Address
+* Phone Number
+* Course Interest
+* Message
+
+This allows prospective students to request a free demo and course information.
+
+### 📱 Responsive Design
+
+The website is designed to provide a consistent experience across:
+
+* 💻 Desktop
+* 💻 Laptop
+* 📱 Mobile
+* 📲 Tablet
+
+## 🛠️ Technologies Used
+
+* HTML5
+* CSS3
+* JavaScript
+* Responsive Web Design
+* Modern UI/UX principles
+* Web Forms
+* Google Fonts / Web Typography
+
+## 📂 Project Structure
+
+```text
+pvd-healthcare/
+│
+├── index.html
+│
+├── css/
+│   └── style.css
+│
+├── js/
+│   └── script.js
+│
+├── images/
+│   ├── courses/
+│   ├── students/
+│   └── testimonials/
+│
+├── assets/
+│
+└── README.md
 ```
 
-### 2. Install dependencies:
+## 🚀 Getting Started
+
+Clone the repository:
+
 ```bash
-npm install
+git clone https://github.com/yourusername/pvd-healthcare.git
 ```
 
-### 3. Setup environment variables:
-Create a local `.env` file in the root directory (Git is configured to ignore this file to protect your API keys):
-```bash
-cp .env.example .env
-```
-Fill out the Firebase variables inside `.env` with your active keys.
+Navigate into the project:
 
-### 4. Run local development server:
 ```bash
-npm run dev
+cd pvd-healthcare
 ```
-Open `http://localhost:3000/PVD-healthcare` in your browser.
+
+Open `index.html` in your browser or use a local development server.
+
+## 🎯 Project Objectives
+
+The primary objectives of this project are to:
+
+* Create a professional digital presence for PVD Healthcare.
+* Present medical coding training programs clearly.
+* Help students discover suitable certification programs.
+* Showcase student achievements and testimonials.
+* Generate course enquiries and demo registrations.
+* Provide a responsive and user-friendly experience.
+* Communicate PVD Healthcare's career-focused training approach.
+
+## 👨‍🎓 Target Audience
+
+The website is designed for:
+
+* Students interested in Medical Coding
+* Healthcare graduates
+* Beginners entering the healthcare industry
+* Professionals looking to advance their coding careers
+* Candidates preparing for CPC certification
+* Learners interested in Medical Billing
+
+## 📈 Student Success
+
+PVD Healthcare's website highlights **1000+ certified students** and a **4.9/5 student rating**, demonstrating its focus on student outcomes and training experience.
+
+## 📞 Contact
+
+**PVD Healthcare**
+
+📍 55M, TNHB, Rajiv Gandhi Street, Pallavan Nagar,
+Kanchipuram – 631501, Tamil Nadu, India
+
+📞 +91 84895 64699
+📧 [pvdhealthcare@gmail.com](mailto:pvdhealthcare@gmail.com)
+
+🌐 Website: https://pvdhealthcare.com/
+
+## 📄 License
+
+This project is developed for PVD Healthcare. All logos, branding, course content, images, and other business assets belong to their respective owners.
 
 ---
 
-## ☁️ Firebase Cloud setup Guide
+### 🏥 PVD Healthcare
 
-To connect your project to a live Firebase backend database:
-
-1. **Create Firestore Instance:**
-   - Go to the [Firebase Console](https://console.firebase.google.com/).
-   - Click **Firestore Database** in the left menu.
-   - Click **Create database** -> Choose Location -> Select **Start in test mode** -> Click **Create**.
-2. **Register Web App Configuration:**
-   - Go to Project Settings -> Select the Web icon (`</>`) -> Give it a name.
-   - Copy the configuration object and paste the variables directly into your local `.env` file (or `firebase-applet-config.json`).
-
----
-
-## 📦 Deployment (GitHub Pages)
-
-The project is fully pre-configured for subpath hosting. To compile and deploy the production bundle:
-
-```bash
-npm run build
-```
-
-This compiles optimized chunks (react, firebase, icons) and exports them cleanly to the `dist/` directory, ready to serve!
-
----
-
-## 🛡️ License
-Designed and maintained by the **PVD Healthcare Team**. All rights reserved.
+**Empowering Healthcare Professionals Through World-Class Medical Coding Training & Global Certifications.**

@@ -84,12 +84,12 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-brand-accent/10 rounded-[2rem] blur-3xl -z-10 translate-y-8" />
-              <div className="bg-white p-4 rounded-[2rem] shadow-2xl overflow-hidden group">
+              <div className="absolute inset-0 bg-brand-accent/10 rounded-4xl blur-3xl -z-10 translate-y-8" />
+              <div className="bg-white p-4 rounded-4xl shadow-2xl overflow-hidden group">
                 <img
                   src="/hero-study-group.jpg"
                   alt="Students Collaborating at PVD Healthcare"
-                  className="rounded-[1.5rem] w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="rounded-3xl w-full h-125 object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 
                 {/* Stats Overlay */}
@@ -158,7 +158,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.2 }}
                     viewport={{ once: true }}
-                    className="glass p-8 rounded-[2rem] shadow-xl relative"
+                    className="glass p-8 rounded-4xl shadow-xl relative"
                   >
                     <Quote className="absolute top-6 right-8 text-brand-accent/20" size={40} />
                     <p className="text-gray-600 leading-relaxed mb-6 italic">"{testimonial.text}"</p>

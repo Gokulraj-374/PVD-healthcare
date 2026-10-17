@@ -87,8 +87,8 @@ export default function Home() {
               <div className="absolute inset-0 bg-brand-accent/10 rounded-[2rem] blur-3xl -z-10 translate-y-8" />
               <div className="bg-white p-4 rounded-[2rem] shadow-2xl overflow-hidden group">
                 <img
-                  src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=800&auto=format&fit=crop"
-                  alt="Medical Coding Class"
+                  src="/hero-study-group.jpg"
+                  alt="Students Collaborating at PVD Healthcare"
                   className="rounded-[1.5rem] w-full h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 

@@ -49,7 +49,7 @@ export default function About() {
             <div className="absolute -inset-4 bg-teal-500/5 rounded-[2.5rem] blur-2xl group-hover:bg-teal-500/10 transition-colors" />
             <img
               src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=800&auto=format&fit=crop"
-              className="w-full h-[600px] object-cover rounded-[2rem] shadow-2xl relative"
+              className="w-full h-150 object-cover rounded-4xl shadow-2xl relative"
               alt="Institute Interior"
             />
           </div>
@@ -58,7 +58,7 @@ export default function About() {
 
       {/* Vision & Mission */}
       <section className="bg-brand-primary py-24 text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-accent/10 blur-[100px] -z-0" />
+        <div className="absolute top-0 right-0 w-125 h-125 bg-brand-accent/10 blur-[100px] z-0" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 relative z-10">
           <motion.div
@@ -109,7 +109,7 @@ export default function About() {
                 whileHover={{ y: -10 }}
                 className="text-center space-y-6"
               >
-                <div className={`w-20 h-20 ${item.color} rounded-[2rem] flex items-center justify-center mx-auto shadow-sm`}>
+                <div className={`w-20 h-20 ${item.color} rounded-4xl flex items-center justify-center mx-auto shadow-sm`}>
                   <item.icon size={32} />
                 </div>
                 <h4 className="text-2xl font-display font-bold text-brand-primary">{item.title}</h4>
@@ -131,7 +131,7 @@ export default function About() {
             <p className="text-gray-500 max-w-md">Our classrooms are equipped with modern technology to simulate real-world medical coding scenarios and AAPC exam environments.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-[800px] md:h-[600px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-200 md:h-150">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -143,7 +143,7 @@ export default function About() {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 alt="Practical Training" 
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/80 to-transparent flex items-end p-10 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute inset-0 bg-linear-to-t from-brand-primary/80 to-transparent flex items-end p-10 opacity-0 group-hover:opacity-100 transition-opacity">
                 <p className="text-white font-bold text-xl">Interactive Group Sessions</p>
               </div>
             </motion.div>
